@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HealthyPay</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f2fff5;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    color: #1b5e20;
+  }
+
+  input {
+    width: 90%;
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 16px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 12px;
+    width: 90%;
+    background: green;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .card {
+    background: white;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .score {
+    font-size: 22px;
+    color: green;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>🥗 HealthyPay</h1>
+
+<p>Type your meal and get a health score</p>
+
+<input id="meal" placeholder="e.g. chicken rice salad">
+
+<button onclick="analyze()">Analyze Meal</button>
+
+<div class="card" id="result" style="display:none;"></div>
+
+<script>
+function analyze() {
+  let meal = document.getElementById("meal").value;
+
+  if (!meal) return;
+
+  // FAKE AI (we will replace with real Gemini later)
+  let score = Math.floor(Math.random() * 40 + 60);
+  let calories = Math.floor(Math.random() * 300 + 300);
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML = `
+    <div class="score">⭐ Score: ${score}/100</div>
+    <p>🔥 Calories: ${calories}</p>
+    <p>🍽️ Meal: ${meal}</p>
+    <p>💰 Reward: $${(score / 10).toFixed(2)}</p>
+  `;
+}
+</script>
+
+</body>
+</html>
